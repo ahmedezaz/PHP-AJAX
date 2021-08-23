@@ -37,7 +37,8 @@
 
         }
 
-        loadData();
+        loadData(); 
+        //loaddata function called to load the data  in page load
     })
 
 
