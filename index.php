@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@
 
 <h1 style="text-align:center; background:green;color:#FFFFFF;">PHP AJAX</h1>
 
-<button id="btn">CLICK HERE</button>
+
 
 
 <div id="show">
@@ -24,7 +23,8 @@
 <script>
 
     $(document).ready(function(){
-        $("#btn").on("click", function(e){
+        
+        function loadData(){
             $.ajax({
             url: "show.php",
             type: "POST",
@@ -33,8 +33,11 @@
                 $("#show").html(result);
                 
             }
-        })
-        })
+        })      
+
+        }
+
+        loadData();
     })
 
 
