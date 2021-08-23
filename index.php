@@ -15,7 +15,7 @@
 <div id="show">
  
 
- 
+<!--   data will appear here from php code -->
 </div>
 
 <script src="jquery-3.6.0.min.js"></script>
