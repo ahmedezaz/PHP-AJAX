@@ -8,6 +8,8 @@ $conn = mysqli_connect('localhost', 'root', '', 'ajaxphp') or die("CONNECTION ER
 
 $sql = "INSERT INTO details(name, age) VALUES ('{$first_name}', '{$last_name}')";
 
+//values inside should use {'', '', ''}
+
 if(mysqli_query($conn, $sql)){
     echo 1;
 }else{
