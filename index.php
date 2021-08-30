@@ -24,7 +24,7 @@
 <script src="jquery-3.6.0.min.js"></script>
 
 <script>
-
+// use this ajax code for fetch data to table
     $(document).ready(function(){
         
         function loadData(){
