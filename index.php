@@ -10,12 +10,15 @@
 <h1 style="text-align:center; background:green;color:#FFFFFF;">PHP AJAX</h1>
 
 
+<input type="text" id="fname" placeholder="First Name" value="f">
+<input type="text" id="lname" placeholder="Last Name" value="l">
+<input type="submit" id="send"  value="SUBMIT">
 
 
 <div id="show">
  
 
-<!--   data will appear here from php code -->
+ 
 </div>
 
 <script src="jquery-3.6.0.min.js"></script>
@@ -32,13 +35,35 @@
 
                 $("#show").html(result);
                 
-            }
-        })      
+                }
+            })      
 
         }
 
-        loadData(); 
-        //loaddata function called to load the data  in page load
+    loadData();
+
+    $("#send").on("click", function(e){
+            e.preventDefault();
+
+            var fname = $("#fname").val();
+            var lname = $("#lname").val();
+
+            $.ajax({
+                url: "ajax-insert.php",
+                type: "POST",
+                data: {first_name: fname, last_name: lname},
+                success: function(data){
+
+                    if(data == 1) {
+                        loadData();
+                    }else {
+                        alert("SOMETHING WRONG");
+                    }
+
+                }
+            });
+        })
+
     })
 
 
