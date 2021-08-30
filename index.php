@@ -10,9 +10,11 @@
 <h1 style="text-align:center; background:green;color:#FFFFFF;">PHP AJAX</h1>
 
 
-<input type="text" id="fname" placeholder="First Name" value="f">
-<input type="text" id="lname" placeholder="Last Name" value="l">
+<form id="clear">
+<input type="text" id="fname" placeholder="First Name" >
+<input type="text" id="lname" placeholder="Age">
 <input type="submit" id="send"  value="SUBMIT">
+</form>
 
 
 <div id="show">
@@ -24,7 +26,7 @@
 <script src="jquery-3.6.0.min.js"></script>
 
 <script>
-// use this ajax code for fetch data to table
+
     $(document).ready(function(){
         
         function loadData(){
@@ -41,7 +43,7 @@
         }
 
     loadData();
-// use this data to create data 
+
     $("#send").on("click", function(e){
             e.preventDefault();
 
@@ -56,6 +58,8 @@
 
                     if(data == 1) {
                         loadData();
+                        $("#clear").trigger("reset");
+
                     }else {
                         alert("SOMETHING WRONG");
                     }
