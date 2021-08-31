@@ -70,6 +70,32 @@
 
     })
 
+    $(document).on("click", ".delete-btn", function(){
+        if(confirm("Do you want to delte this record ?")){
+        var studentId = $(this).data("id");
+   
+
+        var element = this;
+
+        $.ajax({
+                url: "delete.php",
+                type: "POST",
+                data: {id: studentId},
+                success: function(data){
+
+                    if(data == 1) {
+                        $(element).closest("tr").fadeOut();
+
+                    }else {
+                        alert("SOMETHING WRONG");
+                    }
+
+                }
+            });
+
+        }
+    })
+
 
 </script>
     
