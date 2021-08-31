@@ -23,6 +23,7 @@ if(mysqli_num_rows($result) > 0){
                     <td>{$row["id"]} </td>
                     <td>{$row["name"]} </td>
                     <td>{$row["age"]} </td>
+//                     Here will be coloumn code for delete
         
                     </tr>";
     }
