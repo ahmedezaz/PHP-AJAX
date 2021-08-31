@@ -13,6 +13,7 @@ if(mysqli_num_rows($result) > 0){
                 <th>id</th>
                 <th>Name</th>
                 <th>Age</th>
+                <th>DELETE </th>
                 </tr>
     ';
 
