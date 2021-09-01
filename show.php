@@ -13,7 +13,9 @@ if(mysqli_num_rows($result) > 0){
                 <th>id</th>
                 <th>Name</th>
                 <th>Age</th>
-                <th>DELETE </th>
+                <th>Delete</th>
+                <th>EDIT</th>
+
                 </tr>
     ';
 
@@ -23,7 +25,10 @@ if(mysqli_num_rows($result) > 0){
                     <td>{$row["id"]} </td>
                     <td>{$row["name"]} </td>
                     <td>{$row["age"]} </td>
-//                     Here will be coloumn code for delete
+                    <td><button class='delete-btn' data-id='{$row["id"]}'>DELETE</button></td>
+                    <td><button class='edit-btn' data-edid='{$row["id"]}'>EDIT</button></td>
+
+
         
                     </tr>";
     }
