@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Php AJAX</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -22,7 +23,14 @@
 
  
 </div>
-
+<div id="modal">
+    <div id="modal-form">
+      <h2>Edit Form</h2>
+      <table cellpadding="10px" width="100%">
+      </table>
+      <div id="close-btn">X</div>
+    </div>
+  </div>
 <script src="jquery-3.6.0.min.js"></script>
 
 <script>
@@ -41,6 +49,7 @@
             })      
 
         }
+   
 
     loadData();
 
@@ -68,7 +77,6 @@
             });
         })
 
-    })
 
     $(document).on("click", ".delete-btn", function(){
         if(confirm("Do you want to delte this record ?")){
@@ -96,6 +104,48 @@
         }
     })
 
+
+    //Show Modal Box
+    $(document).on("click",".edit-btn", function(){
+      $("#modal").show();
+      var studentId = $(this).data("edid");
+
+      $.ajax({
+        url: "load-update-form.php",
+        type: "POST",
+        data: {id: studentId },
+        success: function(data) {
+          $("#modal-form table").html(data);
+        }
+      })
+    });
+
+    //Hide Modal Box
+    $("#close-btn").on("click",function(){
+      $("#modal").hide();
+    });
+
+       //Save Update Form
+       $(document).on("click","#edit-submit", function(){
+        var stuId = $("#edit-id").val();
+        var fname = $("#edit-fname").val();
+        var age = $("#edit-age").val();
+
+        $.ajax({
+          url: "ajax-update-form.php",
+          type : "POST",
+          data : {id: stuId, first_name: fname, last_age: age},
+          success: function(data) {
+            if(data == 1){
+              $("#modal").hide();
+              loadData();
+            }
+          }
+        })
+      });
+
+
+    })
 
 </script>
     
