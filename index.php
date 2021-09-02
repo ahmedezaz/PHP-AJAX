@@ -149,7 +149,7 @@
           }
         })
       });
-// keyup is used for for when we write something in keyboard its started its function like live search
+// keyup is used for for when we write something in keyboard its started its function like live search query
       $("#search").on("keyup",function(){
       
       var filter = $(this).val();
