@@ -4,7 +4,7 @@ $value = $_POST['search_value'];
 $conn = mysqli_connect('localhost', 'root', '', 'ajaxphp') or die("CONNECTION ERRO");
 
 $sql = "SELECT * FROM details WHERE name LIKE '%{$value}%'";
-
+// LIKE is used for search query
 $result = mysqli_query($conn, $sql) or die("SQL ERROR");
 
 $output="";
