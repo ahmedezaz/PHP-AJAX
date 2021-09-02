@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<!-- AJAX is using in jquery witth $.ajax({}) -->
 <h1 style="text-align:center; background:green;color:#FFFFFF;">PHP AJAX</h1>
 
 <div id="search-bar">
