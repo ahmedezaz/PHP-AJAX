@@ -10,6 +10,11 @@
 
 <h1 style="text-align:center; background:green;color:#FFFFFF;">PHP AJAX</h1>
 
+<div id="search-bar">
+          <label>Search :</label>
+          <input type="text" id="search" autocomplete="off">
+        </div>
+
 
 <form id="clear">
 <input type="text" id="fname" placeholder="First Name" >
@@ -23,6 +28,7 @@
 
  
 </div>
+
 <div id="modal">
     <div id="modal-form">
       <h2>Edit Form</h2>
@@ -143,6 +149,22 @@
           }
         })
       });
+
+      $("#search").on("keyup",function(){
+      
+      var filter = $(this).val();
+
+      $.ajax({
+        url: "search.php",
+        type: "POST",
+        data: {search_value: filter},
+        success: function(data){
+          $("#show").html(data);
+        }
+      })
+    
+    });
+
 
 
     })
